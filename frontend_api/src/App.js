@@ -1,26 +1,30 @@
-
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import TodoForm from './components/TodoForm';
-import CustomerForm from './components/CustomerForm';
-import StatusForm from './components/StatusForm';
-import MyNavbar from './components/MyNavbar';
+import TodoView from './Views/TodoView';
+import MyNavbar from './components/MyNavbar'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import CreateView from './Views/CreateView';
 
-function App() {
-  return (
+
+
+ function App() {
+
+
+
+
+
+return (
+  <BrowserRouter>
     <>
       <div className="container mt-5">
-
-        <MyNavbar />        
-
-
-        <TodoForm />
-        <CustomerForm />
-        <StatusForm />
-
-
+        <MyNavbar/>
+          <Routes>
+            <Route path="/" element={<CreateView/>} />
+            <Route path='/todos' element={<TodoView/>} />
+          </Routes>
       </div>
     </>
+  </BrowserRouter>
   );
 }
 
